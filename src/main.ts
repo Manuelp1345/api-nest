@@ -6,6 +6,10 @@ import { env } from 'process';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.useGlobalPipes(new ValidationPipe());
+  app.enableCors({
+    origin: '*',
+    credentials: true,
+  });
   await app.listen(env.PORT || 3000);
 }
 bootstrap();
