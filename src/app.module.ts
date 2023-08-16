@@ -7,16 +7,21 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthorsModule } from './authors/authors.module';
+import { env } from 'process';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      envFilePath: '.env',
+    }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      url: 'postgres://manueldev:HDF3BBofTGxSM5gLox9oLGTRtXDQesKG@dpg-cjdvamenk9qs73eoa0vg-a.oregon-postgres.render.com/dbmanueldev',
+      url: env.DB_URL,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       ssl: true,
       synchronize: true,
