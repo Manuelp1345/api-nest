@@ -7,11 +7,7 @@ import graphqlPlayground from 'graphql-playground-middleware-express';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.enableCors({
-    origin: 'https://api-nest-i8iq.onrender.com/',
-    credentials: true,
-    optionsSuccessStatus: 200,
-  });
+
   app.use(
     '/playground',
     graphqlPlayground({
