@@ -32,6 +32,7 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "graphql": "^16.8.0",
+    "graphql-playground-middleware-express": "^1.7.23",
     "nodemailer": "^6.9.4",
     "pg": "^8.11.2",
     "postgres": "^3.3.5",
