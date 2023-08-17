@@ -4,11 +4,11 @@ import { AppService } from './app.service';
 import { PostsModule } from './posts/posts.module';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-import { join } from 'path';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthorsModule } from './authors/authors.module';
 import { env } from 'process';
 import { ConfigModule } from '@nestjs/config';
+import { ContactModule } from './contact/contact.module';
 
 @Module({
   imports: [
@@ -30,6 +30,7 @@ import { ConfigModule } from '@nestjs/config';
     }),
     PostsModule,
     AuthorsModule,
+    ContactModule,
   ],
   controllers: [AppController],
   providers: [AppService],
