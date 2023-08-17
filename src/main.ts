@@ -12,7 +12,13 @@ async function bootstrap() {
     credentials: true,
     optionsSuccessStatus: 200,
   });
-  app.use('/playground', graphqlPlayground({ endpoint: '/graphql' }));
+  app.use(
+    '/playground',
+    graphqlPlayground({
+      endpoint: '/graphql',
+    }),
+  );
+
   app.useGlobalPipes(new ValidationPipe());
   await app.listen(env.PORT || 3000);
 }

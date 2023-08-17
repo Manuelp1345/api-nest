@@ -20,6 +20,7 @@ import { ContactModule } from './contact/contact.module';
       // autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       autoSchemaFile: true,
       allowBatchedHttpRequests: true,
+      introspection: true,
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
